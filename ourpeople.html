@@ -1077,34 +1077,57 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
         </div> <!-- container -->
     </section>
 
-	<section style="text-align: center; padding: 50px 20px; background-color: #111;">
+	<section style="text-align: center; padding: 50px 20px; background-color:#111">
 		<h2 style="font-size: 2.5rem; margin-bottom: 10px;">Our Brain</h2>
 		<p style="font-size: 1.2rem; color: #aaa; margin-bottom: 40px;">Explore Our Success Stories and Innovative Projects</p>
-		<div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer;" onclick="openPopup('Satyender Kumar', 'CEO and Founder with 7+ years of experience in IP domain.', './img/team-1.png')">
+		<div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: flex-end;">
+		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer; transform: translateY(20px);" onclick="openPopup('Satyender Kumar', 'CEO and Founder with 7+ years of experience in IP domain.', './img/team-1.png')">
 			<img src="./img/team-1.png" alt="Satyender Kumar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 		  </div>
-		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer;" onclick="openPopup('Ajay Kumar Dubey', 'Senior patent research analyst with 4+ years of experience in IP domain.', './img/team-2.png')">
+		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer; transform: translateY(-20px);" onclick="openPopup('Ajay Kumar Dubey', 'Senior patent research analyst with 4+ years of experience in IP domain.', './img/team-2.png')">
 			<img src="./img/team-2.png" alt="Ajay Kumar Dubey" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 		  </div>
-		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer;" onclick="openPopup('Sanjiv Kumar', 'Data Analyst.', './img/team-3.jpg')">
+		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer; transform: translateY(20px);" onclick="openPopup('Sanjiv Kumar', 'Data Analyst.', './img/team-3.jpg')">
 			<img src="./img/team-3.jpg" alt="Sanjiv Kumar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 		  </div>
-		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer;" onclick="openPopup('Vishruti Vishen', 'Patent Research analyst.', './img/team-4.png')">
+		  <div style="position: relative; width: 150px; height: 300px; overflow: hidden; border-radius: 50px; cursor: pointer; transform: translateY(-20px);" onclick="openPopup('Vishruti Vishen', 'Patent Research analyst.', './img/team-4.png')">
 			<img src="./img/team-4.png" alt="Vishruti Vishen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 		  </div>
 		</div>
 	  </section>
-	
+	  
 	  <div id="popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
 		<div style="background: #fff; color: #111; padding: 20px; border-radius: 20px; text-align: center; max-width: 400px; width: 90%; position: relative;">
-		  <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; font-size: 20px; background: none; border: none; cursor: pointer; color: #111;">&times;</button>
+		  <button 
+			onclick="closePopup()" 
+			style="
+			  position: absolute; 
+			  top: -15px; 
+			  right: -15px; 
+			  width: 40px; 
+			  height: 40px; 
+			  border: none; 
+			  border-radius: 50%; 
+			  background: linear-gradient(45deg, #ff7eb3, #ff758c); 
+			  color: white; 
+			  font-size: 20px; 
+			  cursor: pointer; 
+			  display: flex; 
+			  justify-content: center; 
+			  align-items: center; 
+			  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+			  transition: transform 0.3s ease, box-shadow 0.3s ease;"
+			onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0px 6px 15px rgba(0, 0, 0, 0.3)';"
+			onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 10px rgba(0, 0, 0, 0.2)';"
+		  >
+			&times;
+		  </button>
 		  <img id="popup-img" src="" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px;">
 		  <h3 id="popup-name" style="margin: 10px 0;"></h3>
 		  <p id="popup-description" style="font-size: 1rem; color: #555;"></p>
 		</div>
 	  </div>
-	
+	  
 	  <script>
 		function openPopup(name, description, imgSrc) {
 		  document.getElementById('popup-name').textContent = name;
@@ -1112,9 +1135,21 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		  document.getElementById('popup-img').src = imgSrc;
 		  document.getElementById('popup').style.display = 'flex';
 		}
-	
+	  
 		function closePopup() {
-		  document.getElementById('popup').style.display = 'none';
+		  const popup = document.getElementById('popup');
+		  const closeButton = event.target;
+	  
+		  // Click animation for the close button
+		  closeButton.style.transform = 'scale(0.8)';
+		  closeButton.style.boxShadow = '0px 2px 5px rgba(0, 0, 0, 0.1)';
+	  
+		  setTimeout(() => {
+			popup.style.display = 'none';
+			// Reset styles after hiding the popup
+			closeButton.style.transform = 'scale(1)';
+			closeButton.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.2)';
+		  }, 300); // Matches animation duration
 		}
 	  </script>
       

@@ -1061,26 +1061,693 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
       </header>
       <!-- End: Header
     =================================-->
-    <div style="display: flex; flex-wrap: nowrap; height: 100vh; margin: 0; font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333;">
-        <div style="flex: 1; position: sticky; top: 0; height: 100vh; width: 33.33%; background-color: #f5f5f5; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-right: 1px solid #ddd;">
-          <h1 style="font-size: 4rem; line-height: 1; margin: 0; text-transform: uppercase;">Blog News</h1>
-          <p style="font-size: 1rem; margin-top: 1rem;">Latest News and Updates</p>
+    <!-- Patent Information Webpage -->
+<section id="patent-info">
+  <style>
+    /* Color Variables */
+    :root {
+      --primary-red: #c8102e;
+      --light-red: #e74c3c;
+      --dark-red: #9c0a1f;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --medium-gray: #e0e0e0;
+      --dark-gray: #333333;
+      --text-color: #222222;
+    }
+    
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--white);
+    }
+    
+    .patent-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Typography */
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary-red);
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h1:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--light-red));
+      border-radius: 2px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      color: var(--primary-red);
+      margin: 30px 0 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--medium-gray);
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      color: var(--dark-red);
+      margin: 25px 0 10px;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Table of Contents Styles */
+    .toc-container {
+      background: linear-gradient(135deg, var(--light-gray), var(--white));
+      border: 2px solid var(--primary-red);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      box-shadow: 0 8px 20px rgba(200, 16, 46, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .toc-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-red), var(--light-red));
+    }
+    
+    .toc-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .toc-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+    
+    .toc-title {
+      font-size: 1.8rem;
+      color: var(--primary-red);
+      font-weight: bold;
+    }
+    
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .toc-column {
+      padding: 15px;
+      background-color: rgba(200, 16, 46, 0.05);
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .toc-column:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(200, 16, 46, 0.1);
+    }
+    
+    .toc-section {
+      margin-bottom: 25px;
+    }
+    
+    .toc-section-title {
+      font-size: 1.3rem;
+      color: var(--dark-red);
+      margin-bottom: 10px;
+      padding-left: 10px;
+      border-left: 3px solid var(--primary-red);
+    }
+    
+    .toc-subsection {
+      margin: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .toc-subsection:before {
+      content: '•';
+      position: absolute;
+      left: 10px;
+      color: var(--primary-red);
+    }
+    
+    .toc-link {
+      color: var(--dark-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+      padding: 5px 0;
+    }
+    
+    .toc-link:hover {
+      color: var(--primary-red);
+      text-decoration: underline;
+    }
+    
+    /* Content Sections */
+    .content-section {
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--primary-red);
+    }
+    
+    .content-section h2 {
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      background-color: var(--primary-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+    
+    /* Info Cards */
+    .info-card {
+      background: linear-gradient(135deg, var(--light-gray), var(--white));
+      border: 1px solid var(--medium-gray);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .info-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-red), var(--light-red));
+    }
+    
+    /* Stats Container */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .stat-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--medium-gray);
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-red);
+      margin: 10px 0;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: var(--dark-gray);
+    }
+    
+    /* Patent Type Cards */
+    .patent-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .patent-type-card {
+      flex: 1;
+      min-width: 250px;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-top: 4px solid var(--primary-red);
+      transition: transform 0.3s ease;
+    }
+    
+    .patent-type-card:hover {
+      transform: translateY(-8px);
+    }
+    
+    .patent-type-icon {
+      font-size: 2.5rem;
+      color: var(--primary-red);
+      margin-bottom: 15px;
+    }
+    
+    .patent-type-title {
+      font-size: 1.3rem;
+      color: var(--dark-red);
+      margin-bottom: 10px;
+    }
+    
+    /* Process Visualization */
+    .process-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0;
+      position: relative;
+    }
+    
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    
+    .step-circle {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-red), var(--light-red));
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(200, 16, 46, 0.3);
+    }
+    
+    .step-label {
+      font-weight: 600;
+      color: var(--dark-gray);
+    }
+    
+    .process-connector {
+      position: absolute;
+      top: 40px;
+      left: 20%;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-red), var(--light-red));
+      z-index: 0;
+    }
+    
+    /* Image Placeholders with Creative Designs */
+    .image-placeholder {
+      height: 200px;
+      background: linear-gradient(135deg, rgba(200, 16, 46, 0.1), rgba(231, 76, 60, 0.2));
+      border-radius: 10px;
+      margin: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .placeholder-icon {
+      font-size: 4rem;
+      color: var(--primary-red);
+      opacity: 0.3;
+    }
+    
+    .placeholder-pattern {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(200, 16, 46, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(200, 16, 46, 0.1) 0%, transparent 20%);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .patent-types {
+        flex-direction: column;
+      }
+      
+      .process-container {
+        flex-direction: column;
+      }
+      
+      .process-step {
+        margin-bottom: 40px;
+        width: 100%;
+      }
+      
+      .process-connector {
+        display: none;
+      }
+      
+      .step-circle {
+        width: 70px;
+        height: 70px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Animation for TOC links */
+    @keyframes highlight {
+      0% { background-color: transparent; }
+      50% { background-color: rgba(200, 16, 46, 0.1); }
+      100% { background-color: transparent; }
+    }
+    
+    .highlight {
+      animation: highlight 1.5s ease;
+    }
+  </style>
+  
+  <div class="patent-container">
+    <h1>Understanding Patents: Protection for Innovation</h1>
+    
+    <div class="content-section">
+      <p>A patent is a form of intellectual property that grants inventors the legal right to exclusively make, use, and sell their inventions for a specified period—typically 20 years from the date of filing, in the case of utility patents. To qualify for a patent, an invention must meet several critical criteria: it must be novel, non-obvious, and useful. Once granted, a patent prevents others from commercially exploiting the same invention without the inventor's consent, thereby offering a competitive edge and encouraging innovation.</p>
+      
+      <p>For businesses, patents represent more than just legal protections—they are valuable assets. Companies frequently invest in patenting to secure technological advantages, generate licensing revenue, deter infringement, and enhance their market position. In industries like pharmaceuticals, electronics, and software, maintaining a robust patent portfolio is often integral to long-term strategy and valuation.</p>
+      
+      <div class="image-placeholder">
+        <div class="placeholder-pattern"></div>
+        <div class="placeholder-icon">📝</div>
+      </div>
+      
+      <p>Before submitting a patent application, inventors typically evaluate the likelihood of its success. This involves determining whether the invention is eligible for protection and whether it can withstand scrutiny under patent law. Key factors considered include the uniqueness of the idea, its technical feasibility, and the presence of any prior art (existing knowledge or patents that are similar).</p>
+      
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-value">600,000+</div>
+          <div class="stat-label">Annual USPTO Applications</div>
         </div>
-        <div style="flex: 2; margin-left: 33.33%; overflow-y: auto; padding: 2rem; background-color: #fff;">
-          <div style="margin-bottom: 3rem;">
-            <img src="https://via.placeholder.com/600x400" alt="Technopolymer Revolution" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
-            <h2 style="font-size: 1.5rem; margin: 0; margin-bottom: 1rem;">The Technopolymer Revolution: Shaping the Future of Footwear Manufacturing</h2>
-            <p style="font-size: 1rem; line-height: 1.6;">The advent of technopolymers is not just transforming industries globally; it's specifically revolutionizing the footwear manufacturing sector.</p>
-            <a href="#" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem; color: #fff; background-color: #000; border: none; border-radius: 4px; text-decoration: none; cursor: pointer; transition: background-color 0.3s;">Discover →</a>
+        <div class="stat-card">
+          <div class="stat-value">52%</div>
+          <div class="stat-label">Approval Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">300,000+</div>
+          <div class="stat-label">Patents Issued in 2021</div>
+        </div>
+      </div>
+      
+      <p>Patent activity is a global phenomenon, with hundreds of thousands of applications submitted annually to patent offices worldwide. At the United States Patent and Trademark Office (USPTO) alone, more than 600,000 applications are filed each year. These encompass various types of patents, including:</p>
+      
+      <div class="patent-types">
+        <div class="patent-type-card">
+          <div class="patent-type-icon">⚙️</div>
+          <div class="patent-type-title">Utility Patents</div>
+          <p>Protect functional inventions or processes</p>
+        </div>
+        <div class="patent-type-card">
+          <div class="patent-type-icon">🎨</div>
+          <div class="patent-type-title">Design Patents</div>
+          <p>Cover the ornamental design of a product</p>
+        </div>
+        <div class="patent-type-card">
+          <div class="patent-type-icon">🌿</div>
+          <div class="patent-type-title">Plant Patents</div>
+          <p>Granted for new varieties of asexually reproduced plants</p>
+        </div>
+      </div>
+      
+      <p>Despite the large volume of filings, not all applications result in granted patents. According to recent USPTO statistics, approximately 48% of applications are either rejected or abandoned, while about 52% successfully secure a patent. Reasons for rejection may include lack of novelty, obviousness, or failure to meet technical disclosure requirements.</p>
+      
+      <p>Patent grants have shown an upward trend in recent years. In 2021 alone, the USPTO issued over 300,000 patents, underscoring the continued growth in innovation across sectors.</p>
+      
+      <p>Overall, while obtaining a patent can be a complex and competitive process, it remains a powerful tool for protecting intellectual creativity and driving economic progress.</p>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="toc-container">
+      <div class="toc-header">
+        <div class="toc-icon">📑</div>
+        <div class="toc-title">Table of Contents</div>
+      </div>
+      
+      <div class="toc-grid">
+        <div class="toc-column">
+          <div class="toc-section">
+            <div class="toc-section-title">1. Understanding Patents: An Overview</div>
+            <div class="toc-subsection"><a href="#section1-1" class="toc-link">1.1 What Are the Different Types of Patents?</a></div>
+            <div class="toc-subsection"><a href="#section1-2" class="toc-link">1.2 Utility Patents: Protecting Functionality</a></div>
+            <div class="toc-subsection"><a href="#section1-3" class="toc-link">1.3 Design Patents: Securing Aesthetic Innovation</a></div>
+            <div class="toc-subsection"><a href="#section1-4" class="toc-link">1.4 Plant Patents: Safeguarding New Plant Varieties</a></div>
           </div>
-          <div style="margin-bottom: 3rem;">
-            <img src="https://via.placeholder.com/600x400" alt="Another Topic" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
-            <h2 style="font-size: 1.5rem; margin: 0; margin-bottom: 1rem;">Another Revolutionary Topic</h2>
-            <p style="font-size: 1rem; line-height: 1.6;">Explore how advancements in materials science are changing industries around the globe.</p>
-            <a href="#" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem; color: #fff; background-color: #000; border: none; border-radius: 4px; text-decoration: none; cursor: pointer; transition: background-color 0.3s;">Discover →</a>
+          
+          <div class="toc-section">
+            <div class="toc-section-title">2. The Patent Application Process</div>
+            <div class="toc-subsection"><a href="#section2-1" class="toc-link">2.1 Overview of the Patent Filing Journey</a></div>
+            <div class="toc-subsection"><a href="#section2-2" class="toc-link">2.2 Exploring Various Types of Patent Applications</a></div>
+            <div class="toc-subsection"><a href="#section2-3" class="toc-link">2.3 Introduction to Utility Patents: Definition & Scope</a></div>
+            <div class="toc-subsection"><a href="#section2-4" class="toc-link">2.4 Am I Eligible for a Utility Patent?</a></div>
+            <div class="toc-subsection"><a href="#section2-5" class="toc-link">2.5 Can Services Be Covered Under Utility Patents?</a></div>
+            <div class="toc-subsection"><a href="#section2-6" class="toc-link">2.6 Comparing Utility Patents with Other Patent Types</a></div>
+          </div>
+        </div>
+        
+        <div class="toc-column">
+          <div class="toc-section">
+            <div class="toc-section-title">3. Deep Dive into Utility Patents</div>
+            <div class="toc-subsection"><a href="#section3-1" class="toc-link">3.1 Key Components of a Utility Patent</a></div>
+            <div class="toc-subsection"><a href="#section3-2" class="toc-link">3.2 Sample Application: Provisional Utility Patent</a></div>
+            <div class="toc-subsection"><a href="#section3-3" class="toc-link">3.3 Sample Application: Non-Provisional Utility Patent</a></div>
+            <div class="toc-subsection"><a href="#section3-4" class="toc-link">3.4 Decoding the Patent Number System</a></div>
+            <div class="toc-subsection"><a href="#section3-5" class="toc-link">3.5 Categories Within Utility Patents</a></div>
+          </div>
+          
+          <div class="toc-section">
+            <div class="toc-section-title">4. The Mechanics of Utility Patent Protection</div>
+            <div class="toc-subsection"><a href="#section4-1" class="toc-link">4.1 How Utility Patents Operate in Practice</a></div>
+            <div class="toc-subsection"><a href="#section4-2" class="toc-link">4.2 What is a Provisional Utility Patent?</a></div>
+            <div class="toc-subsection"><a href="#section4-3" class="toc-link">4.3 Step-by-Step Guide: Filing a Provisional Patent</a></div>
+            <div class="toc-subsection"><a href="#section4-4" class="toc-link">4.4 Filing a Full Utility Patent Application</a></div>
+          </div>
+        </div>
+        
+        <div class="toc-column">
+          <div class="toc-section">
+            <div class="toc-section-title">5. Patent Enforcement and Legal Aspects</div>
+            <div class="toc-subsection"><a href="#section5-1" class="toc-link">5.1 Understanding Utility Patent Infringement</a></div>
+            <div class="toc-subsection"><a href="#section5-2" class="toc-link">5.2 Common Types of Patent Infringement</a></div>
+          </div>
+          
+          <div class="toc-section">
+            <div class="toc-section-title">6. Duration and Validity</div>
+            <div class="toc-subsection"><a href="#section6-1" class="toc-link">6.1 How Long Does a Utility Patent Last?</a></div>
+            <div class="toc-subsection"><a href="#section6-2" class="toc-link">6.2 Duration, Expiry, and Maintenance</a></div>
+            <div class="toc-subsection"><a href="#section6-3" class="toc-link">6.3 Key Requirements to Maintain Patent Validity</a></div>
+            <div class="toc-subsection"><a href="#section6-4" class="toc-link">6.4 What Qualifies as Patentable Subject Matter?</a></div>
+          </div>
+          
+          <div class="toc-section">
+            <div class="toc-section-title">7. Costs and Investment</div>
+            <div class="toc-subsection"><a href="#section7-1" class="toc-link">7.1 Breakdown of Utility Patent Costs</a></div>
+            <div class="toc-subsection"><a href="#section7-2" class="toc-link">7.2 Cost to Prepare and File a Utility Patent</a></div>
+            <div class="toc-subsection"><a href="#section7-3" class="toc-link">7.3 Cost of Patent Prosecution Process</a></div>
+            <div class="toc-subsection"><a href="#section7-4" class="toc-link">7.4 Post-Grant Fees and Maintenance Expenses</a></div>
+          </div>
+        </div>
+        
+        <div class="toc-column">
+          <div class="toc-section">
+            <div class="toc-section-title">8. Why Choose Mallorn Technology?</div>
+            <div class="toc-subsection"><a href="#section8-1" class="toc-link">8.1 Our Edge in Patent Strategy and Innovation Support</a></div>
           </div>
         </div>
       </div>
+    </div>
+    
+    <!-- Content Sections -->
+    <div class="content-section" id="section1-1">
+      <h2><span class="section-icon">1</span> Understanding Patents: An Overview</h2>
+      <h3>1.1 What Are the Different Types of Patents?</h3>
+      <p>There are three primary types of patents granted by the USPTO: utility patents, design patents, and plant patents. Each serves a distinct purpose and protects different aspects of innovation.</p>
+      
+      <div class="image-placeholder">
+        <div class="placeholder-pattern"></div>
+        <div class="placeholder-icon">📊</div>
+      </div>
+    </div>
+    
+    <div class="content-section" id="section1-2">
+      <h3>1.2 Utility Patents: Protecting Functionality</h3>
+      <p>Utility patents are the most common type of patent, covering new and useful processes, machines, articles of manufacture, compositions of matter, or any new and useful improvement thereof. These patents protect how an invention works rather than how it looks.</p>
+      
+      <div class="info-card">
+        <p><strong>Key Features:</strong> 20-year term from filing date, requires maintenance fees, protects functional aspects of inventions.</p>
+      </div>
+    </div>
+    
+    <div class="content-section" id="section1-3">
+      <h3>1.3 Design Patents: Securing Aesthetic Innovation</h3>
+      <p>Design patents protect the ornamental design of a functional item. They cover the unique visual qualities of a manufactured article, safeguarding the appearance rather than the structural or functional features.</p>
+      
+      <div class="image-placeholder">
+        <div class="placeholder-pattern"></div>
+        <div class="placeholder-icon">🖌️</div>
+      </div>
+    </div>
+    
+    <div class="content-section" id="section1-4">
+      <h3>1.4 Plant Patents: Safeguarding New Plant Varieties</h3>
+      <p>Plant patents are granted to anyone who invents or discovers and asexually reproduces any distinct and new variety of plant. This includes cultivated sports, mutants, hybrids, and newly found seedlings.</p>
+    </div>
+    
+    <div class="content-section" id="section2-1">
+      <h2><span class="section-icon">2</span> The Patent Application Process</h2>
+      <h3>2.1 Overview of the Patent Filing Journey</h3>
+      <p>The patent application process typically involves several stages: prior art search, application preparation, filing, examination, and prosecution. This journey can take several years from initial filing to patent grant.</p>
+      
+      <div class="process-container">
+        <div class="process-step">
+          <div class="step-circle">1</div>
+          <div class="step-label">Prior Art Search</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">2</div>
+          <div class="step-label">Application Prep</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">3</div>
+          <div class="step-label">Filing</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">4</div>
+          <div class="step-label">Examination</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">5</div>
+          <div class="step-label">Grant</div>
+        </div>
+        <div class="process-connector"></div>
+      </div>
+    </div>
+    
+    <!-- Additional sections would go here following the same pattern -->
+    
+    <div class="content-section" id="section8-1">
+      <h2><span class="section-icon">8</span> Why Choose Mallorn Technology?</h2>
+      <h3>8.1 Our Edge in Patent Strategy and Innovation Support</h3>
+      <p>Mallorn Technology provides comprehensive patent services that streamline the patent process while maximizing protection for your innovations. Our team combines technical expertise with legal acumen to develop tailored intellectual property strategies.</p>
+      
+      <div class="info-card">
+        <p><strong>Our Advantages:</strong> Industry-specific expertise, global filing experience, cost-effective solutions, proactive portfolio management, and strategic IP counseling.</p>
+      </div>
+      
+      <div class="image-placeholder">
+        <div class="placeholder-pattern"></div>
+        <div class="placeholder-icon">🏆</div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Smooth scrolling for TOC links
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Add highlight animation
+          targetElement.classList.add('highlight');
+          setTimeout(() => {
+            targetElement.classList.remove('highlight');
+          }, 1500);
+          
+          // Scroll to the section
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Responsive adjustments
+    function adjustLayout() {
+      const processSteps = document.querySelectorAll('.process-step');
+      if (window.innerWidth < 768) {
+        // Mobile view
+        processSteps.forEach(step => {
+          step.style.marginBottom = '40px';
+        });
+      } else {
+        // Desktop view
+        processSteps.forEach(step => {
+          step.style.marginBottom = '0';
+        });
+      }
+    }
+    
+    // Initial adjustment
+    adjustLayout();
+    
+    // Adjust on window resize
+    window.addEventListener('resize', adjustLayout);
+  </script>
+</section>
       
       
       

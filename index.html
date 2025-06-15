@@ -103,8 +103,8 @@
               "@type": "ImageObject",
               "inLanguage": "en-GB",
               "@id": "https://mallorntechnology.com/#/schema/logo/image/",
-              "url": "img/logo_7june.png",
-              "contentUrl": "img/logo_7june.png",
+              "url": "img/logo.png",
+              "contentUrl": "img/logo.png",
               "width": 576,
               "height": 576,
               "caption": "MALLORN"
@@ -1155,14 +1155,14 @@
                             fetchpriority="high"
                             width="576"
                             height="576"
-                            src="/img/logo_7june.png"
+                            src="/img/logo.png"
                             class="custom-logo"
                             alt="MALLORN"
                             decoding="async"
                             srcset="
-                              /img/logo_7june.png 576w,
-                              /img/logo_7june.png 300w,
-                              /img/logo_7june.png 150w
+                              /img/logo.png 576w,
+                              /img/logo.png 300w,
+                              /img/logo.png 150w
                             "
                             sizes="(max-width: 576px) 100vw, 576px"
                         /></a>
@@ -1215,14 +1215,14 @@
                           fetchpriority="high"
                           width="576"
                           height="576"
-                          src="/img/logo_7june.png"
+                          src="/img/logo.png"
                           class="custom-logo"
                           alt="MALLORN"
                           decoding="async"
                           srcset="
-                            /img/logo_7june.png 576w,
-                            /img/logo_7june.png 300w,
-                            /img/logo_7june.png 150w
+                            /img/logo.png 576w,
+                            /img/logo.png 300w,
+                            /img/logo.png 150w
                           "
                           sizes="(max-width: 576px) 100vw, 576px"
                       /></a>
@@ -2525,6 +2525,19 @@
             <h3 style="margin: 0; font-size: 1.2rem;">Sanjiv Kumar
             </h3>
             <p style="margin: 5px 0 0; font-size: 0.9rem; color: #777;">Data Analyst</p>
+          </div>
+        </div>
+
+        <div style="position: relative; background: white; color: #333; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="showDetail('Adrija Sengupta', 'Patent Research Analyst', 'Adrija brings a sharp analytical mindset and a detail-oriented approach to our patent research team. With a strong foundation in intellectual property and a passion for innovation, she plays a key role in uncovering valuable insights from complex patent landscapes. Her commitment to precision and continuous learning adds depth to every project she undertakes.')">
+          <img src="./img/team-5.jpg" alt="Adrija Sengupta" style="width: 100%; height: auto;">
+          <div style="position: absolute; top: 0; left: 0; height: 100%; width: 50px; background: #e50914; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; opacity: 0; transition: opacity 0.3s ease;">
+            <a href="https://facebook.com" target="_blank" style="color: white; font-size: 1.5rem; text-decoration: none;"><i class="fa fa-facebook"></i></a>
+            <a href="https://linkedin.com" target="_blank" style="color: white; font-size: 1.5rem; text-decoration: none;"><i class="fa fa-linkedin"></i></a>
+            <a href="https://instagram.com" target="_blank" style="color: white; font-size: 1.5rem; text-decoration: none;"><i class="fa fa-instagram"></i></a>
+          </div>
+          <div style="padding: 15px; text-align: center;">
+            <h3 style="margin: 0; font-size: 1.2rem;">Adrija Sengupta</h3>
+            <p style="margin: 5px 0 0; font-size: 0.9rem; color: #777;">Patent Research Analyst</p>
           </div>
         </div>
     
@@ -5931,47 +5944,60 @@
       ai_js_code = true;
     </script>
      
-     <section id="welcome-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 9999;">
-         <div style="background: white; border-radius: 10px; padding: 20px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
-             <img src="./img/logo_7june.png" alt="User Image" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px;">
-             <h1 style="font-size: 24px; margin-bottom: 10px;">Welcome TO</h1>
-             <p style="font-size: 16px; color: #666; margin-bottom: 20px;">Mallorn Technology Consulting Pvt Limited</p>
-             <div style="text-align: left; margin-bottom: 20px;">
-                 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                     <span style="width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; background: #ff4081; color: white; margin-right: 10px;">&#128195;</span>
-                     <span>Submit your patent idea</span>
-                 </div>
-                 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                     <span style="width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; background: #ffca28; color: white; margin-right: 10px;">&#128202;</span>
-                     <span>Collaborate with our experts</span>
-                 </div>
-                 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                     <span style="width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; background: #2196f3; color: white; margin-right: 10px;">&#128100;</span>
-                     <span>Track your application status</span>
-                 </div>
-             </div>
-             <button id="close-popup" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s;">Start Exploring</button>
-         </div>
-         <script>
-             document.addEventListener('DOMContentLoaded', () => {
-                 const popup = document.getElementById('welcome-popup');
-                 const closeBtn = document.getElementById('close-popup');
-     
-                 // Check if the popup has been shown before
-                 if (!localStorage.getItem('popupDismissed')) {
-                     // Show the popup
-                     popup.style.display = 'flex';
-                 }
-     
-                 // Close the popup when the button is clicked
-                 closeBtn.addEventListener('click', () => {
-                     popup.style.display = 'none';
-                     // Set the item in localStorage to remember the dismissal
-                     localStorage.setItem('popupDismissed', 'true');
-                 });
-             });
-         </script>
-     </section>
+     <!-- Mallorn Popup Section -->
+<section class="fullscreen-popup" style="position: fixed; top: 0; left: 0; width: 100vw; height: calc(var(--vh, 100vh)); z-index: 9999; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.8);">
+  <div id="mallorn-popup" style="position: relative; width: 90vw; max-width: 800px; aspect-ratio: 3/2; background-image: url('./img/artsearch.png'); background-size: cover; background-position: center; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); overflow: hidden;">
+    
+    <!-- Dark overlay -->
+    <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+
+    <!-- Content -->
+    <div style="position: relative; z-index: 2; padding: 20px; text-align: center; color: white; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+      <img src="./img/logo_7june.png" alt="Mallorn Logo" style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 15px;" class="logo-mobile" />
+      <h1 style="font-size: clamp(1.5em, 5vw, 2.5em); margin-bottom: 15px;">Welcome to<br><span style="color: #FFD700; font-weight: bold;">Mallorn Technology Consulting</span></h1>
+      <p style="font-size: clamp(1em, 3vw, 1.2em); max-width: 90%; margin-bottom: 20px;">Innovating with purpose. Building the future with intelligence and integrity.</p>
+      <button onclick="this.closest('section').style.display='none';" style="padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px); font-size: clamp(1em, 3vw, 1.2em); background: linear-gradient(45deg, #FFD700, #FF6347); color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 99, 71, 0.6); transition: all 0.3s ease;">Step Into Innovation</button>
+    </div>
+  </div>
+
+  <!-- JS to handle responsive vh units on mobile -->
+  <script>
+    function setVh() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+    }
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+    setVh();
+
+    // Adjust content padding on mobile
+    function adjustMobileLayout() {
+      const popup = document.getElementById('mallorn-popup');
+      const content = popup.querySelector('div:nth-child(2)');
+      if (window.innerWidth <= 600) {
+        content.style.padding = '15px';
+      } else {
+        content.style.padding = '40px';
+      }
+    }
+    window.addEventListener('resize', adjustMobileLayout);
+    window.addEventListener('load', adjustMobileLayout);
+  </script>
+
+  <style>
+    @media (max-width: 600px) {
+      .logo-mobile {
+        width: 60px;
+        height: 60px;
+      }
+      #mallorn-popup {
+        aspect-ratio: auto;
+        height: 85vh; /* Adjust height to fit content on mobile */
+      }
+    }
+  </style>
+</section>
+
     <script>
       function scrollToContactUs() {
         const contactUsSection = document.getElementById("contact-us");
